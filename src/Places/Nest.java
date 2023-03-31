@@ -1,16 +1,16 @@
 package Places;
 
-import Alive.Characters;
+import Alive.Character;
 
 import java.util.Arrays;
 
 public class Nest extends Place {
-    public Nest(String name, Characters[] list) {
+    public Nest(String name, Character[] list) {
         super(name, list);
     }
 
     @Override
-    public void addCharacter(Characters entity) {
+    public void addCharacter(Character entity) {
         heroes.add(entity);
         System.out.println(entity.getName() + " охраняли " + this.getName() + " и не кому не мешали");
     }

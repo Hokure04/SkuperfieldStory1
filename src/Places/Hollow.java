@@ -1,16 +1,16 @@
 package Places;
 
-import Alive.Characters;
+import Alive.Character;
 
 import java.util.Arrays;
 
 public class Hollow extends Place {
-    public Hollow(String name, Characters[] list) {
-        super(name, list);
+    public Hollow(String name, Character[] list, int spacious) {
+        super(name, list, spacious);
     }
 
     @Override
-    public void addCharacter(Characters entity) {
+    public void addCharacter(Character entity) {
         heroes.add(entity);
         System.out.println(entity.getName() + " пробирается в большое " + this.getName());
     }

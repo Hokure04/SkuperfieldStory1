@@ -1,7 +1,7 @@
 package Items;
 
-import Alive.Characters;
+import Alive.Character;
 
 public interface Damagble {
-    void dealDamage(Characters entity);
+    void dealDamage(Character entity);
 }

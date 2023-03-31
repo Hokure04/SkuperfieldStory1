@@ -1,21 +1,30 @@
 package Items;
 
-import Alive.Characters;
+import Alive.Character;
 
 public class Stick extends Items implements Damagble {
     public double power = 1.0;
+
     public Stick(String call) {
         super(call);
     }
 
     @Override
-    public void dealDamage(Characters entity) {
-        double unFormattedDamage = Math.random()*power*100;
-        String format = String.format("%.0f", unFormattedDamage);
-        System.out.println(this.getName()+" наносит "+ format +" единиц урона "+ entity.getName());
-        entity.health = (entity.health - (int)unFormattedDamage);
-        System.out.println("У " + entity.getName()+" осталось "+Math.round(entity.health)+" ед. здоровья");
-        entity.dead();
+    public void dealDamage(Character entity) {
+        double unFormattedDamage = Math.random() * power * 100;
+        int criticalDamage = 91;
+        if (unFormattedDamage > criticalDamage) {
+            String format = String.format("%.0f", unFormattedDamage);
+            System.out.println(this.getName() + " наносит коллосальное количество урона " + entity.getName());
+            entity.health = 0;
+            entity.dead();
+        } else {
+            String format = String.format("%.0f", unFormattedDamage);
+            System.out.println(this.getName() + " наносит " + format + " единиц урона " + entity.getName());
+            entity.health = (entity.health - (int) unFormattedDamage);
+            System.out.println("У " + entity.getName() + " осталось " + Math.round(entity.health) + " ед. здоровья");
+            entity.dead();
+        }
     }
 
     @Override

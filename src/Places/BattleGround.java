@@ -1,17 +1,18 @@
 package Places;
 
 import Alive.*;
+import Alive.Character;
 
 import java.util.Arrays;
 
 public class BattleGround extends Place {
 
-    public BattleGround(String name, Characters[] list) {
+    public BattleGround(String name, Character[] list) {
         super(name, list);
     }
 
     @Override
-    public void addCharacter(Characters entity, Place place) {
+    public void addCharacter(Character entity, Place place) {
         heroes.add(entity);
         System.out.println(entity.getName() + " находится на " + this.getName());
         if (entity.getCondition() == Condition.RELAX) {

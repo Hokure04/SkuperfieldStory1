@@ -1,26 +1,29 @@
 package Places;
 
-import Alive.Characters;
+import Alive.Character;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Place {
-    protected LinkedList<Characters> heroes = new LinkedList<Characters>();
+    protected LinkedList<Character> heroes = new LinkedList<Character>();
     protected String name;
     protected Place components;
+    protected int spaciousness;
 
-    Place(String call) {
+    Place(String call, Character[] list, int spacious) {
         name = call;
+        heroes.addAll(List.of(list));
+        this.spaciousness = spacious;
     }
 
-    Place(String call, Characters[] list) {
+    Place(String call, Character[] list) {
         name = call;
         heroes.addAll(List.of(list));
     }
 
-    public void setComponents(Place comps){
+    public void setComponents(Place comps) {
         components = comps;
     }
 
@@ -28,28 +31,49 @@ public abstract class Place {
         return name;
     }
 
-    public void addCharacter(Characters characters) {
+    public void addCharacter(Character characters) {
         heroes.add(characters);
         System.out.println(characters.getName() + " находится в " + this.getName());
     }
 
-    protected void addCharacter(Characters сharacters, Place place) {
+    protected void addCharacter(Character сharacters, Place place) {
         heroes.add(сharacters);
         System.out.println(сharacters.getName() + " находится в " + this.getName());
-    }
-
-    protected void addListOfCharacters(Characters[] list) {
-        heroes.addAll(List.of(list));
     }
 
     public Object[] getCharacters() {
         return heroes.toArray();
     }
 
+    public int getSpaciousness() {
+        return this.spaciousness;
+    }
 
-    public void delCharacter(Characters entity) {
+    public void delCharacter(Character entity) {
         heroes.remove(entity);
     }
+
+    public static class UnnamedPlace extends Place {
+        public UnnamedPlace(String name, Character[] list) {
+            super(name, list);
+        }
+    }
+
+    public void earthquake() {
+        class Earth {
+            final String name = "земля";
+
+            public String getName() {
+                return this.name;
+            }
+
+        }
+        Earth earth = new Earth();
+        System.out.println(earth.getName() + " заходила у него под ногами ходуном");
+    }
+
+
+
 
     @Override
     public boolean equals(Object o) {

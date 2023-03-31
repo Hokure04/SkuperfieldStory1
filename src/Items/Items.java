@@ -1,6 +1,7 @@
 package Items;
 
 import Alive.*;
+import Alive.Character;
 
 public abstract class Items {
     protected String name;
@@ -9,11 +10,11 @@ public abstract class Items {
         name = call;
     }
 
-    protected String getName() {
+    public String getName() {
         return name;
     }
 
-    public void useOn(Characters entity) {
+    public void useOn(Character entity) {
         System.out.println(this.getName() + " избивает " + entity);
         System.out.println(entity + " разозлились ещё больше");
     }
@@ -21,6 +22,11 @@ public abstract class Items {
     public void addToPerson(Person person) {
         person.addItem(this);
         System.out.println(person.getName() + " берёт в руки " + this.getName());
+    }
+
+    public void removeFromPerson(Person person) {
+        person.removeItem(this);
+        System.out.println(person.getName() + " кладёт " + this.getName() + " на пол");
     }
 
     @Override

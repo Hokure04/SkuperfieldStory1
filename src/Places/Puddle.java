@@ -4,15 +4,15 @@ import Alive.Character;
 
 import java.util.Arrays;
 
-public class Tree extends Place {
-    public Tree(String name, Character[] list) {
+public class Puddle extends Place {
+    public Puddle(String name, Character[] list) {
         super(name, list);
     }
 
     @Override
     public void addCharacter(Character entity) {
         heroes.add(entity);
-        System.out.println("У " + entity.getName() + "а получилось залезть на " + this.getName());
+        System.out.println(entity.getName() + " угодил прямо в лужу");
     }
 
     @Override
@@ -23,11 +23,11 @@ public class Tree extends Place {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Tree tree = (Tree) o;
-        if (!Arrays.equals(this.getCharacters(), tree.getCharacters())) {
+        Forest forest = (Forest) o;
+        if (!Arrays.equals(this.getCharacters(), forest.getCharacters())) {
             return false;
         }
-        return tree.getName().equals(this.getName());
+        return forest.getName().equals(this.getName());
     }
 
     @Override

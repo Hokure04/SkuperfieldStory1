@@ -4,7 +4,9 @@ public enum Condition {
     BITTEN,
     NORMAL,
     SHUDDERING,
-    MADDNESS,
+    MADNESS,
     WRONG_IMPRESIION,
-    RELAX
+    RELAX,
+    HUNGRY,
+    SCARED
 }

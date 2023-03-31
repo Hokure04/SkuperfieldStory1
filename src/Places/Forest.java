@@ -1,12 +1,12 @@
 package Places;
 
-import Alive.Characters;
+import Alive.Character;
 
 import java.util.Arrays;
 
 public class Forest extends Place {
 
-    public Forest(String name, Characters[] list) {
+    public Forest(String name, Character[] list) {
         super(name, list);
     }
 
